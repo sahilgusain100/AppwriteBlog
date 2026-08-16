@@ -5,7 +5,7 @@ import { store} from "./store/store.js"
 import './index.css'
 import App from './App.jsx'
 import {createBrowserRouter, RouterProvider} from "react-router-dom"
-import {Home, AuthLayout , Login, Signup, AllPosts, AddPost, EditPost, Post} from "./Components"
+import {Home, AuthLayout , Login, Signup, AllPosts, AddPost, EditPost, Post, MyPosts} from "./Components"
 
 
 const router = createBrowserRouter([
@@ -39,6 +39,14 @@ const router = createBrowserRouter([
           <AuthLayout authentication>
             {" "}
             <AllPosts/>
+          </AuthLayout>
+        )
+      },
+      {
+        path: '/my-posts',
+        element: (
+          <AuthLayout authentication>
+            <MyPosts/>
           </AuthLayout>
         )
       },

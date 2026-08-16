@@ -17,6 +17,7 @@ import AllPosts from "../Pages/AllPosts"
 import AddPost from "../Pages/AddPost"
 import Home from "../Pages/Home"
 import EditPost from "../Pages/EditPost"
+import MyPosts from "../Pages/MyPosts";
 
 export{
     Header,
@@ -37,5 +38,6 @@ export{
     Home,
     AllPosts,
     AddPost,
-    EditPost
+    EditPost,
+    MyPosts
 }

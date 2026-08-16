@@ -30,6 +30,11 @@ const Header = () => {
       active: authStatus
     },
     {
+      name: "My Posts",
+      slug: "/my-posts",
+      active: authStatus
+    },
+    {
       name: "Add Post",
       slug: "/add-post",
       active: authStatus
@@ -37,33 +42,50 @@ const Header = () => {
   ];
 
   return (
-    <header className='py-3 shadow bg-gray-500'>
+    <header className="sticky top-0 z-50 bg-gray-950 border-b border-gray-800 shadow-lg">
       <Container>
-        <nav className='flex'>
 
-          <div className='mr-4'>
-            <Link to="/">
-              <Logo width="70px" />
+        <nav className="flex items-center justify-between py-4">
+
+          {/* Logo */}
+          <div>
+            <Link
+              to="/"
+              className="inline-flex items-center transition duration-200 hover:opacity-80"
+            >
+              <Logo width="75px" />
             </Link>
           </div>
 
-          <ul className='flex ml-auto'>
+          {/* Navigation */}
+          <ul className="flex items-center gap-2">
 
             {navItems.map((item) =>
               item.active ? (
                 <li key={item.name}>
+
                   <button
                     onClick={() => navigate(item.slug)}
-                    className='inline-block px-6 py-2 duration-200 hover:bg-blue-100 rounded-full'
+                    className={`
+                      px-4 py-2
+                      text-sm font-medium
+                      text-gray-200
+                      rounded-lg
+                      transition duration-200
+                      hover:bg-gray-800
+                      hover:text-white
+                    `}
                   >
                     {item.name}
                   </button>
+
                 </li>
               ) : null
             )}
 
+            {/* Logout */}
             {authStatus && (
-              <li>
+              <li className="ml-2 pl-3 border-l border-gray-700">
                 <LogoutBtn />
               </li>
             )}
@@ -71,6 +93,7 @@ const Header = () => {
           </ul>
 
         </nav>
+
       </Container>
     </header>
   )

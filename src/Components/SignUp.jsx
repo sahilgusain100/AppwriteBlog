@@ -32,15 +32,15 @@ const SignUp = () => {
     }
 };
     return (
-        <div className='flex items-center justify-center'>
-            <div className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}>
+        <div className='flex items-center justify-center w-full'>
+            <div className={`mx-auto w-full max-w-lg bg-gray-900 rounded-xl p-10 border border-black/10`}>
                 <div className='mb-2 flex justify-center'>
                     <span className='inline-block w-full max-w-[25]'>
                         <Logo width="100%" />
                     </span>
                 </div>
                 <h2 className='text-center text-2xl font-bold leading-tight'>Sign Up to create account</h2>
-                <p className='mt-2 text-center text-base text-black/60'>Already have an account?&nbsp;
+                <p className='mt-2 text-center text-base text-gray-400'>Already have an account?&nbsp;
                     <Link
                         to="/login"
                         className='font-medium text-primary transition-all duration-200 hover:underline'
@@ -75,12 +75,12 @@ const SignUp = () => {
                                 required: true,
                             })}
                         />
-                        <button
+                        <Button
                             type='submit'
                             className='w-full'
                         >
                             Create Account
-                        </button>
+                        </Button>
                     </div>
                 </form>
             </div>

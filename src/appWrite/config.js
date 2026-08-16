@@ -18,8 +18,10 @@ export class Service {
             return await this.databases.createDocument(
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
-                slug,
+                ID.unique(),
+
                 {
+                    slug,
                     title,
                     content,
                     featuredImage,
@@ -51,16 +53,16 @@ export class Service {
         }
     }
 
-    async deletePost({ slug }) {
+    async deletePost(documentId) {
         try {
             await this.databases.deleteDocument(
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
-                slug
+                documentId
             )
             return true
         } catch (error) {
-            console.log("AppWrite Serivce :: deletePost :: error", error);
+            console.log("AppWrite Service :: deletePost :: error", error);
             return false
         }
     }
@@ -77,6 +79,10 @@ export class Service {
             return false;
         }
     }
+    getUserPostsQuery(userId) {
+        return Query.equal("userId", userId);
+    }
+
     //status is a key here . A key can only be used when you are having indexes in backend
     async getPosts(queries = [Query.equal("status", "active")]) {
         try {
@@ -120,8 +126,8 @@ export class Service {
         }
     }
 
-    getFilePreview(fileId) {
-        return this.bucket.getFilePreview(
+    getFileView(fileId) {
+        return this.bucket.getFileView(
             conf.appwriteBucketId,
             fileId
         )
