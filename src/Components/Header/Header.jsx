@@ -45,7 +45,7 @@ const Header = () => {
     <header className="sticky top-0 z-50 bg-gray-950 border-b border-gray-800 shadow-lg">
       <Container>
 
-        <nav className="flex flex-wrap items-center justify-between gap-2 py-4">
+       <nav className="flex items-center justify-between gap-4 py-4 overflow-hidden">
 
           {/* Logo */}
           <div>
@@ -58,7 +58,7 @@ const Header = () => {
           </div>
 
           {/* Navigation */}
-          <ul className="flex flex-wrap items-center justify-end gap-1">
+         <ul className="flex items-center gap-2 overflow-x-auto whitespace-nowrap">
 
             {navItems.map((item) =>
               item.active ? (
@@ -67,8 +67,8 @@ const Header = () => {
                   <button
                     onClick={() => navigate(item.slug)}
                     className={`
-                      px-2 py-1 sm:px-4 sm:py-2
-                      text-xs sm:text-sm font-medium
+                      px-4 py-2
+                      text-sm font-medium
                       text-gray-200
                       rounded-lg
                       transition duration-200
@@ -85,7 +85,7 @@ const Header = () => {
 
             {/* Logout */}
             {authStatus && (
-              <li className="ml-2 pl-3 border-l border-gray-700">
+              <li className="ml-2 pl-3 border-l border-gray-700 shrink-0">
                 <LogoutBtn />
               </li>
             )}
